@@ -10,7 +10,7 @@ var Examples = require('Examples');
 require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
 $(document).foundation();
 
-require('style-loader!css-loader!applicationStyles')
+require('style-loader!css-loader!sass-loader!applicationStyles')
 
 
 let hashHistory = Router.hashHistory;
