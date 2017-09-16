@@ -29513,17 +29513,46 @@ var React = __webpack_require__(5);
 
 var About = function About(props) {
   return React.createElement(
-    'div',
+    "div",
     null,
     React.createElement(
-      'h3',
-      null,
-      'About'
+      "h1",
+      { className: "text-center" },
+      "About"
     ),
     React.createElement(
-      'p',
+      "p",
       null,
-      'Welcome to the About page'
+      "This is a Weather application build on React.js"
+    ),
+    React.createElement(
+      "p",
+      null,
+      "Here are some of the tools I used: "
+    ),
+    React.createElement(
+      "ul",
+      null,
+      React.createElement(
+        "li",
+        null,
+        React.createElement(
+          "a",
+          { href: "https://facebook.github.io/react", target: "_blank" },
+          "React"
+        ),
+        " - This was the javascript framework used."
+      ),
+      React.createElement(
+        "li",
+        null,
+        React.createElement(
+          "a",
+          { href: "http://openweathermap.org", target: "_blank" },
+          "Open Weather Map"
+        ),
+        " - I used Open weather Map to search for weather data by city name."
+      )
     )
   );
 };
