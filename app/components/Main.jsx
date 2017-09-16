@@ -1,6 +1,5 @@
 var React = require('react');
 var Nav = require('Nav');
-var PropTypes = require('prop-types');
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -10,8 +9,11 @@ export default class Main extends React.Component {
     return (
       <div>
         <Nav/>
-        <h2>Main Component</h2>
-        {this.props.children}
+        <div className="grid-x">
+          <div className=" Cell medium-3 medium-centered">
+            {this.props.children}
+          </div>
+        </div>
       </div>
     );
   }
