@@ -28803,7 +28803,13 @@ var Nav = React.createClass({
 
   onSearch: function onSearch(e) {
     e.preventDefault();
-    alert('Not yet wired up');
+    var location = this.refs.location.value;
+    var encodedLocation = encodeURIComponent(location);
+
+    if (location.length > 0) {
+      this.refs.location.value = '';
+      window.location.hash = '#/?location=' + encodedLocation;
+    }
   },
   render: function render() {
     return React.createElement(
@@ -28861,7 +28867,7 @@ var Nav = React.createClass({
             React.createElement(
               'li',
               null,
-              React.createElement('input', { type: 'search', placeholder: 'Search Weather by city' })
+              React.createElement('input', { type: 'search', ref: 'location', placeholder: 'Search Weather by city' })
             ),
             React.createElement(
               'li',
@@ -28928,7 +28934,9 @@ var Weather = React.createClass({
 
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
 
     openWeatherMap.getTemp(location).then(function (temp) {
@@ -28943,6 +28951,22 @@ var Weather = React.createClass({
         errorMessage: e.message
       });
     });
+  },
+  componentDidMount: function componentDidMount() {
+    var location = this.props.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
+  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+    var location = newProps.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
   },
   render: function render() {
     var _state = this.state,
