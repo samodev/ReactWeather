@@ -9,8 +9,8 @@ export default class Main extends React.Component {
     return (
       <div>
         <Nav/>
-        <div className="grid-x">
-          <div className=" Cell medium-3 medium-centered">
+        <div className="grid-x align-center">
+          <div className=" Cell medium-6 large-4 small-centered">
             {this.props.children}
           </div>
         </div>

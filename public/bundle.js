@@ -28326,10 +28326,10 @@ var Main = function (_React$Component) {
         React.createElement(Nav, null),
         React.createElement(
           'div',
-          { className: 'grid-x' },
+          { className: 'grid-x align-center' },
           React.createElement(
             'div',
-            { className: ' Cell medium-3 medium-centered' },
+            { className: ' Cell medium-6 large-4 small-centered' },
             this.props.children
           )
         )
